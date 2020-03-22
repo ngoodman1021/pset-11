@@ -99,7 +99,26 @@ public class Exercises {
   }
 
   public ArrayList<String> bubble(ArrayList<String> list, boolean ascending) {
-    return null;
+    if (list.contains(null) || list == null) {
+	return null;
+    }
+
+    String temp;
+	for (int j = 0; j < list.size(); j++) {
+	  for (int i = j + 1; i < list.size(); i++) {
+	    if (list.get(i).compareTo(list.get(j)) < 0) {
+		temp = list.get(j);
+		list.set(j, list.get(i));
+		list.set(i, temp);
+		}
+	   }
+        }
+
+	if (!ascending) {
+	    Collections.reverse(list);
+	}
+
+	return list;
   }
 
   public ArrayList<Integer> insertion(ArrayList<Integer> list, boolean ascending) {
