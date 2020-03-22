@@ -29,7 +29,25 @@ public class Exercises {
   }
 
   public int findMeFaster(ArrayList<Integer> list, int target) {
-    return -1;
+    if (list.contains(null) || list == null) {
+			return -1;
+		}
+
+		int low = 0;
+		int high = list.size() - 1;
+		int index = -1;
+	while (low <= high) {
+		int mid = (low + high) / 2;
+		if (list.get(mid) < target) {
+			low = mid + 1;
+		} else if (list.get(mid) > target) {
+			high = mid - 1;
+		} else if (list.get(mid) == target) {
+			index = mid;
+			break;
+		}
+	}
+     return index;
   }
 
   public int findMeFaster(String[] list, String target) {
