@@ -145,7 +145,33 @@ public class Exercises {
   }
 
   public String[] insertion(String[] list, boolean ascending) {
-    return null;
+    if (Arrays.asList(list).contains(null) || Arrays.asList(list) == null) {
+	return null;
+    }
+
+    for (int j = 1; j < list.length; j++) {
+	String current = list[j];
+	int i = j - 1;
+	   while ((i > -1) && (list[i].compareTo(current) > 0)) {
+		list[i + 1] = list[i];
+		i--;
+	   }
+	list[i + 1] = current;
+    }
+
+    if (!ascending) {
+	int i;
+	String t;
+	int n = list.length;
+	   for (i = 0; i < n / 2; i++) {
+		t = list[i];
+		list[i] = list[n - i - 1];
+		list[n - i - 1] = t;
+	   }
+	}
+
+		return list;
+	}
   }
 
   public int[] selection(int[] list, boolean ascending) {
