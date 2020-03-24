@@ -190,6 +190,16 @@ public class Exercises {
 		list[min_idx] = list[i];
 		list[i] = temp;
      }
+      
+      if (!ascending) {
+	int i, t;
+	int x = list.length;
+	   for (i = 0; i < x / 2; i++) {
+		t = list[i];
+		list[i] = list[x - i - 1];
+		list[x - i - 1] = t;
+	   }
+       }
 
      return list;
   }
